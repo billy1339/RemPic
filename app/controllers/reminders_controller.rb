@@ -9,6 +9,7 @@ class RemindersController < ApplicationController
   def new
     @user = current_user
     @reminder = Reminder.new
+    @favorite = Favorite.all
   end
 
   def pic_to_chose
@@ -24,8 +25,9 @@ class RemindersController < ApplicationController
       @favorite = Favorite.create(fav_params)
       @favorite[:phone_number] = @reminder[:phone_number]
       @favorite[:picture] = @reminder[:picture]
+      @favorite[:user_id] = current_user.id
       @favorite.save
-      # binding.pry
+      binding.pry
     end
     redirect_to reminders_path
 

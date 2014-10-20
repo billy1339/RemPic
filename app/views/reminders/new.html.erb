@@ -19,3 +19,18 @@
     <%= f.submit %>
   <% end %>
 </div>
+
+<div>
+    <p><%= current_user.email %>: here are your favorites </p>
+    <% @favorite.each do |t| %>
+        <% if t.user_id == current_user.id %>
+            <%= t.phone_number %> <br>
+            <%= t.picture %>
+        <% end %>
+    <% end %>
+
+
+</div>
+
+
+
