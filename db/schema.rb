@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20141020164254) do
     t.time    "time"
     t.string  "picture"
     t.integer "user_id"
+    t.boolean "favorite"
   end
 
   create_table "users", force: true do |t|

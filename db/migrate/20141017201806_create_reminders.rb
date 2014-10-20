@@ -5,7 +5,8 @@ class CreateReminders < ActiveRecord::Migration
       t.string :phone_number
       t.time :time
       t.string :picture
-      t.belongs_to :user
+      t.belongs_to :user, index: true
+      t.boolean :favorite
     end
   end
 end
