@@ -11,6 +11,9 @@ class RemindersController < ApplicationController
     @reminder = Reminder.new
   end
 
+  def pic_to_chose
+  end
+
   def create
     @reminder = Reminder.create(reminder_params)
     @reminder.user = current_user
@@ -24,11 +27,7 @@ class RemindersController < ApplicationController
     number_to_send_to = @reminder[:phone_number]
     message_to_send = @reminder[:text]
     picture_url = @reminder[:picture]
-    # thing = TWILIO_CONFIG['sid']
-    # account_sid:
-    # auth_token:
-    # Settings.twilio.account_sid
-    # thing = request.env["ACCOUNT_SID"]
+
     twilio_sid = ENV["ACCOUNT_SID"]
     twilio_token = ENV["AUTH_TOKEN"]
     twilio_phone_number = "+18607852739"
