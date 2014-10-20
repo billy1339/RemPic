@@ -1,1 +1,11 @@
+
+<%= form_for @pic do |f|%>
+  <%= f.label "Enter the URL for your Picture" %>
+  <%= f.text_field :picture %>
+
+  <%= f.submit %>
+<% end %>
+
+
+
 <%= link_to "complete your message", new_reminder_path %>
