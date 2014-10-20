@@ -3,8 +3,8 @@ class CreateFavorites < ActiveRecord::Migration
     create_table :favorites do |t|
       t.string :phone_number
       t.belongs_to :user, index: true
-      t.belongs_to :reminder, index: true
       t.string :picture
+      t.timestamps
     end
   end
 end

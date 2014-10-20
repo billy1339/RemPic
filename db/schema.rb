@@ -17,9 +17,11 @@ ActiveRecord::Schema.define(version: 20141020164254) do
   enable_extension "plpgsql"
 
   create_table "favorites", force: true do |t|
-    t.string  "phone_number"
-    t.integer "user_id"
-    t.string  "picture"
+    t.string   "phone_number"
+    t.integer  "user_id"
+    t.string   "picture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
@@ -29,13 +31,17 @@ ActiveRecord::Schema.define(version: 20141020164254) do
   end
 
   create_table "reminders", force: true do |t|
-    t.string  "text"
-    t.string  "phone_number"
-    t.time    "time"
-    t.string  "picture"
-    t.integer "user_id"
-    t.boolean "favorite"
+    t.string   "text"
+    t.string   "phone_number"
+    t.time     "time"
+    t.string   "picture"
+    t.integer  "user_id"
+    t.boolean  "favorite"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
+
+  add_index "reminders", ["user_id"], name: "index_reminders_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

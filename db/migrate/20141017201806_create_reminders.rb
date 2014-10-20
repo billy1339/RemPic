@@ -7,6 +7,7 @@ class CreateReminders < ActiveRecord::Migration
       t.string :picture
       t.belongs_to :user, index: true
       t.boolean :favorite
+      t.timestamps
     end
   end
 end
