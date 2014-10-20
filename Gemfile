@@ -33,7 +33,7 @@ gem 'devise'
 gem 'twilio-ruby','~> 3.12'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'dotenv-rails'
+# gem 'dotenv-rails'
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
