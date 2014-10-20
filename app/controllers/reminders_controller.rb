@@ -20,9 +20,9 @@ class RemindersController < ApplicationController
     @reminder.save
     send_text_message
     # if @reminder[:favotire] == true
-    @favorite = Favorite.create(fav_params)
-    @favorite[:phone_number] = @reminder[:phone_number]
-    @favorite[:picture] = @reminder[:picture]
+    # @favorite = Favorite.create(fav_params)
+    # @favorite[:phone_number] = @reminder[:phone_number]
+    # @favorite[:picture] = @reminder[:picture]
     # end
     redirect_to reminders_path
 
