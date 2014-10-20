@@ -32,7 +32,7 @@ class RemindersController < ApplicationController
     twilio_sid = ENV["ACCOUNT_SID"]
     twilio_token = ENV["AUTH_TOKEN"]
     twilio_phone_number = "+18607852739"
-    binding.pry
+    # binding.pry
 
     @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
 
