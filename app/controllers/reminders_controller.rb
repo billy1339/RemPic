@@ -18,12 +18,15 @@ class RemindersController < ApplicationController
     @reminder = Reminder.create(reminder_params)
     @reminder.user = current_user
     @reminder.save
+    # binding.pry
     send_text_message
-    # if @reminder[:favotire] == true
-    # @favorite = Favorite.create(fav_params)
-    # @favorite[:phone_number] = @reminder[:phone_number]
-    # @favorite[:picture] = @reminder[:picture]
-    # end
+    if @reminder[:favorite] == true
+      @favorite = Favorite.create(fav_params)
+      @favorite[:phone_number] = @reminder[:phone_number]
+      @favorite[:picture] = @reminder[:picture]
+      @favorite.save
+      # binding.pry
+    end
     redirect_to reminders_path
 
   end
@@ -48,7 +51,7 @@ class RemindersController < ApplicationController
 
   private
   def fav_params
-    params.require(:favorites).permit(:picture, :phone_number)
+    params.fetch(:favorite, {}).permit(:picture, :phone_number)
   end
 
   def reminder_params
