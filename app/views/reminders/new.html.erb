@@ -1,0 +1,15 @@
+<%= form_for @reminder  do  |f|%>
+  <%= f.label "Your Reminder"%>
+  <%= f.text_area :text %>
+
+  <%= f.label "Phone Number" %>
+  <%= f.text_field :phone_number %>
+
+  <%= f.label "When to be sent" %>
+  <%= f.text_field :time%>
+
+  <%= f.label "Picture URL" %>
+  <%= f.text_field :picture %>
+
+  <%= f.submit %>
+<% end %>
