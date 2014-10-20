@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20141020201530) do
   create_table "reminders", force: true do |t|
     t.string   "text"
     t.string   "phone_number"
-    t.datetime "time"
+    t.time     "time"
     t.string   "picture"
     t.integer  "user_id"
     t.boolean  "favorite"

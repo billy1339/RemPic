@@ -28,6 +28,7 @@ class RemindersController < ApplicationController
       @favorite[:user_id] = current_user.id
       @favorite.save
       # binding.pry
+      # if time is left blank -- do something like Time.now.
     end
     redirect_to reminders_path
 
