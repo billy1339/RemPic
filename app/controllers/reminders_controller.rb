@@ -20,7 +20,7 @@ class RemindersController < ApplicationController
     @reminder.user = current_user
     @reminder.save
     # binding.pry
-    send_text_message
+    # @reminder.delay.send_text_message(:time)
     if @reminder[:favorite] == true
       @favorite = Favorite.create(fav_params)
       @favorite[:phone_number] = @reminder[:phone_number]
