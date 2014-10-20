@@ -27,7 +27,7 @@ class RemindersController < ApplicationController
       @favorite[:picture] = @reminder[:picture]
       @favorite[:user_id] = current_user.id
       @favorite.save
-      binding.pry
+      # binding.pry
     end
     redirect_to reminders_path
 
