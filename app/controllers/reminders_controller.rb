@@ -37,10 +37,15 @@ class RemindersController < ApplicationController
   end
 
    def schedule_sending_text
-    job = self.delay(run_at: @reminder.time).send_text_message
-    update_column(:delayed_job_id, job.id)
+    Delayed::Job.enqueue(perform, :run_at => @reminder.time)
+
+    # job = self.delay(run_at: @reminder.time).send_text_message
+    # update_column(:delayed_job_id, job.id)
   end
 
+  def perform
+    send_text_message
+  end
 
   def send_text_message
     number_to_send_to = @reminder[:phone_number]
