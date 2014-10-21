@@ -1,6 +1,37 @@
+
+
+.jumbotron#custom {
+  background-color: rgb(255, 107, 90);
+
+}
+
+.page-header h1 {
+  text-align: center;
+}
+
+.page-header h2 {
+  text-align: center;
+}
+
+.page-header p {
+  text-align: center;
+}
+
 .panel-footer-clr {
   height: 150px;
   background-color: rgb(64,255,157);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.col-md-8 {
+  text-align: center;
+}
+
+.col-md-8 p{
+  padding-top: 25px;
 }
 
 

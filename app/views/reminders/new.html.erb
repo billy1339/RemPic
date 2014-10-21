@@ -1,40 +1,59 @@
-
-<div>
-  <%= form_for @reminder  do  |f|%>
-    <%= f.label "Your Reminder"%>
-    <%= f.text_area :text %>
-    <!-- button here to make new areas to put in a phone number -->
-
-    <%= f.label "Phone Number" %>
-    <%= f.text_field :phone_number %>
-
-    <%= f.label "When to be sent" %>
-    <%= f.text_field :time%>
-
-    <%= f.label "Picture URL" %>
-    <%= f.text_field :picture %>
-
-    <%= f.label "Favorite?" %>
-    <%= f.check_box :favorite %>
-
-    <%= f.submit %>
-  <% end %>
+<div class="jumbotron" id="custom">
+    <header class="page-header">
+        <h2> Create Your Reminder! </h2>
+    </header>
 </div>
 
-<div>
-    <p><%= current_user.email %>: here are your favorites </p>
-    <% x = [] %>
-    <% y = [] %>
-    <% @favorite.each do |t| %>
-        <% if t.user_id == current_user.id %>
-            <% x << t.phone_number %>
-            <% y << t.picture %>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6">
+        <form role="form">
+            <div class=
+
+
+
+
+
+            <ul class="list-group">
+                <%= form_for @reminder  do  |f|%>
+                    <%= f.label "Your Reminder"%>
+                    <%= f.text_area :text %>
+
+
+                   <%= f.label "Phone Number" %>
+                    <%= f.text_field :phone_number %>
+
+                    <%= f.label "When to be sent" %>
+                    <%= f.text_field :time%>
+
+                    <%= f.label "Picture URL" %>
+                    <%= f.text_field :picture %>
+
+                    <%= f.label "Favorite?" %>
+                    <%= f.check_box :favorite %>
+
+                    <%= f.submit %>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <p><%= current_user.email %>: here are your favorites </p>
+        <% x = [] %>
+        <% y = [] %>
+        <% @favorite.each do |t| %>
+            <% if t.user_id == current_user.id %>
+                <% x << t.phone_number %>
+                <% y << t.picture %>
+            <% end %>
         <% end %>
-    <% end %>
-    <%= x.uniq %>
-    <%= y.uniq %>
-</div>
+        <%= x.uniq %>
+        <%= y.uniq %>
+    </div>
 
+</div>
 <!-- comment, test -->
 
 
