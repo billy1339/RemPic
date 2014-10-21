@@ -21,6 +21,8 @@ class RemindersController < ApplicationController
     @reminder.save
     # binding.pry
     # @reminder.delay.send_text_message(:time)
+    # send_text_message
+    schedule_sending_text
     if @reminder[:favorite] == true
       @favorite = Favorite.create(fav_params)
       @favorite[:phone_number] = @reminder[:phone_number]
@@ -34,8 +36,13 @@ class RemindersController < ApplicationController
 
   end
 
-  def send_text_message
+   def schedule_sending_text
+    job = self.delay(run_at: @reminder.time).send_text_message
+    update_column(:delayed_job_id, job.id)
+  end
 
+
+  def send_text_message
     number_to_send_to = @reminder[:phone_number]
     message_to_send = @reminder[:text]
     picture_url = @reminder[:picture]
