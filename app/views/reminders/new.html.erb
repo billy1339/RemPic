@@ -23,12 +23,16 @@
 
 <div>
     <p><%= current_user.email %>: here are your favorites </p>
+    <% x = [] %>
+    <% y = [] %>
     <% @favorite.each do |t| %>
         <% if t.user_id == current_user.id %>
-            <%= t.phone_number %> <br>
-            <%= t.picture %>
+            <% x << t.phone_number %>
+            <% y << t.picture %>
         <% end %>
     <% end %>
+    <%= x.uniq %>
+    <%= y.uniq %>
 </div>
 
 <!-- comment, test -->

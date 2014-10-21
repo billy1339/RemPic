@@ -16,6 +16,8 @@ class RemindersController < ApplicationController
   end
 
   def create
+    #this method does three things right now...creates a reminder,
+    #sends a text, and creates a favorite.....
     @reminder = Reminder.create(reminder_params)
     @reminder.user = current_user
     @reminder.save
@@ -23,6 +25,7 @@ class RemindersController < ApplicationController
     # @reminder.delay.send_text_message(:time)
     send_text_message
     # schedule_sending_text
+    #refactor this porfavor....
     if @reminder[:favorite] == true
       @favorite = Favorite.create(fav_params)
       @favorite[:phone_number] = @reminder[:phone_number]
@@ -36,7 +39,7 @@ class RemindersController < ApplicationController
 
   end
 
-   def schedule_sending_text
+  def schedule_sending_text
     # Delayed::Job.enqueue(perform, :run_at => @reminder.time)
 
     # job = self.delay(run_at: @reminder.time).send_text_message
