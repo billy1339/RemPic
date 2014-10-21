@@ -21,8 +21,8 @@ class RemindersController < ApplicationController
     @reminder.save
     # binding.pry
     # @reminder.delay.send_text_message(:time)
-    # send_text_message
-    schedule_sending_text
+    send_text_message
+    # schedule_sending_text
     if @reminder[:favorite] == true
       @favorite = Favorite.create(fav_params)
       @favorite[:phone_number] = @reminder[:phone_number]
@@ -37,7 +37,7 @@ class RemindersController < ApplicationController
   end
 
    def schedule_sending_text
-    Delayed::Job.enqueue(perform, :run_at => @reminder.time)
+    # Delayed::Job.enqueue(perform, :run_at => @reminder.time)
 
     # job = self.delay(run_at: @reminder.time).send_text_message
     # update_column(:delayed_job_id, job.id)
@@ -48,7 +48,8 @@ class RemindersController < ApplicationController
   end
 
   def send_text_message
-    number_to_send_to = @reminder[:phone_number]
+    numbers_to_send_to = @reminder[:phone_number].split ", "
+    # multiple_nums = number_to_send_to.split ", "
     message_to_send = @reminder[:text]
     picture_url = @reminder[:picture]
 
@@ -59,8 +60,9 @@ class RemindersController < ApplicationController
 
     @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
 
-    @twilio_client.account.messages.create(:from => twilio_phone_number, :to => number_to_send_to, :body => message_to_send, :media_url => picture_url)
-
+    numbers_to_send_to.each do |number|
+      @twilio_client.account.messages.create(:from => twilio_phone_number, :to => number, :body => message_to_send, :media_url => picture_url)
+    end
   end
 
 
