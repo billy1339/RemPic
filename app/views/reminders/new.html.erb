@@ -49,27 +49,37 @@
             <!-- <form class="form-horizontal"> -->
 
                 <%= form_for @reminder do |f|%>
-                    <%= f.label "Your Reminder"%>
-                    <%= f.text_area :text %>
+                    <div class="form-group">
+                        <%=f.label "Your Reminder" %>
+                        <%= f.text_field :text, class: "form-control", placeholder: "Enter Your Reminder" %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label "Phone Number(s)" %>
+                        <%= f.text_field :phone_number, class: "form-control", placeholder: "Enter Phone Number(s)" %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label "When to be sent" %>
+                        <%= f.text_field :time, class: "form-control", placeholder: "Enter Time"%>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label "Picture URL" %>
+                        <%= f.text_field :picture, class: "form-control", placeholder: "Enter Your Picture URL" %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label "Favorite?" %>
+                        <%= f.check_box :favorite, class: "form-control" %>
+                    </div>
+                    <div class="action">
+                        <%= f.submit %>
+                    </div>
 
-                    <%= f.label "Phone Number" %>
-                    <%= f.text_field :phone_number %>
-
-                    <%= f.label "When to be sent" %>
-                    <%= f.text_field :time%>
-
-                    <%= f.label "Picture URL" %>
-                    <%= f.text_field :picture %>
-
-                    <%= f.label "Favorite?" %>
-                    <%= f.check_box :favorite %>
-
-                    <%= f.submit %>
 
                 <% end %>
             <!-- </form> -->
 
         </div>
+
+
 
 
 
