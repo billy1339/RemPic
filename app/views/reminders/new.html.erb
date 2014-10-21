@@ -46,13 +46,13 @@
         </div>
 
         <div class="col-xs-8">
+            <!-- <form class="form-horizontal"> -->
 
-                <%= form_for @reminder  do  |f|%>
+                <%= form_for @reminder do |f|%>
                     <%= f.label "Your Reminder"%>
                     <%= f.text_area :text %>
 
-
-                   <%= f.label "Phone Number" %>
+                    <%= f.label "Phone Number" %>
                     <%= f.text_field :phone_number %>
 
                     <%= f.label "When to be sent" %>
@@ -65,7 +65,9 @@
                     <%= f.check_box :favorite %>
 
                     <%= f.submit %>
+
                 <% end %>
+            <!-- </form> -->
 
         </div>
 
