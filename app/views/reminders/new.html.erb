@@ -7,15 +7,29 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-md-6">
-        <form role="form">
-            <div class=
 
+        <div class="col-xs-3">
+            <p><%= current_user.email %>: here are your favorites </p>
+            <% x = [] %>
+            <% y = [] %>
+            <% @favorite.each do |t| %>
+                <% if t.user_id == current_user.id %>
+                    <% x << t.phone_number %>
+                    <% y << t.picture %>
+                <% end %>
+            <% end %>
+            <% x.uniq.each do |num| %>
+                <%= num%>
+            <% end %>
+            <% y.uniq.each do |pic| %>
+                <%= pic %>
+            <% end %>
+        </div>
 
+        <div class="col-xs-9">
 
-
-
-            <ul class="list-group">
+            <form role="form">
+                <div class="form-group">
                 <%= form_for @reminder  do  |f|%>
                     <%= f.label "Your Reminder"%>
                     <%= f.text_area :text %>
@@ -35,22 +49,12 @@
 
                     <%= f.submit %>
                 <% end %>
-            </ul>
+                </div>
+            </form>
         </div>
-    </div>
 
-    <div>
-        <p><%= current_user.email %>: here are your favorites </p>
-        <% x = [] %>
-        <% y = [] %>
-        <% @favorite.each do |t| %>
-            <% if t.user_id == current_user.id %>
-                <% x << t.phone_number %>
-                <% y << t.picture %>
-            <% end %>
-        <% end %>
-        <%= x.uniq %>
-        <%= y.uniq %>
+
+
     </div>
 
 </div>
