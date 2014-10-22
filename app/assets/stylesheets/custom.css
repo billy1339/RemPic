@@ -38,8 +38,8 @@ ul {
   padding-left: 25px;
 }
 
-.Action.btn.butn-md.custom {
-  background-color: #fff;
+.Action{
+  padding-bottom: 10px;
 }
 
 
