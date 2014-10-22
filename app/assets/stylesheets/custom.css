@@ -20,17 +20,15 @@
 .panel-footer-clr {
   height: 150px;
   background-color: rgb(64,255,157);
+  padding-left: 10px;
 }
 
 ul {
   list-style-type: none;
 }
 
-.col-md-8 {
-  text-align: center;
-}
 
-.col-md-8 p{
+.col-xs-8#frontPage{
   padding-top: 25px;
   text-align: center;
 }
@@ -39,4 +37,9 @@ ul {
   padding-bottom: 25px;
   padding-left: 25px;
 }
+
+.Action.btn.butn-md.custom {
+  background-color: #fff;
+}
+
 
