@@ -24,6 +24,18 @@ class Reminder < ActiveRecord::Base
     numbers_to_send_to.each do |number|
       @twilio_client.account.messages.create(:from => twilio_phone_number, :to => number, :body => message_to_send, :media_url => picture_url)
     end
+
+  end
+
+
+  def self.time_send
+    @reminder = Reminder.all
+    @reminder.each do |time|
+      get_time = time.time
+      if get_time >= Time.now + (10 * 60) or get time <= Time.now + (10 * 60)
+        Reminder.send_text_message(@reminder.id)
+      end
+    end
   end
 
 
