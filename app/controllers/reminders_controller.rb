@@ -22,7 +22,9 @@ class RemindersController < ApplicationController
     @reminder.save
     # binding.pry
     # @reminder.delay.send_text_message(:time)
-    send_text_message
+    Reminder.send_text_message1(@reminder)
+    # send_text_message
+
     create_favorite
     # schedule_sending_text
     #refactor this porfavor....
