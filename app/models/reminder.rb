@@ -7,7 +7,7 @@ class Reminder < ActiveRecord::Base
   #   job = self.delay(run_at: Time.now).send_text_message
   #   update_column(:delayed_job_id, job.id)
   # end
-  def self.send_text_message1(remind)
+  def self.send_text_message(remind)
     numbers_to_send_to = remind[:phone_number].split ", "
     # multiple_nums = number_to_send_to.split ", "
     message_to_send = "A reminder from Remind U: " + remind[:text]

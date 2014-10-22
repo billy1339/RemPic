@@ -22,7 +22,7 @@ class RemindersController < ApplicationController
     @reminder.save
     # binding.pry
     # @reminder.delay.send_text_message(:time)
-    Reminder.send_text_message1(@reminder)
+    Reminder.send_text_message(@reminder)
     # send_text_message
 
     create_favorite
@@ -65,23 +65,23 @@ class RemindersController < ApplicationController
     send_text_message
   end
 
-  def send_text_message
-    numbers_to_send_to = @reminder[:phone_number].split ", "
-    # multiple_nums = number_to_send_to.split ", "
-    message_to_send = "A reminder from Remind U: " + @reminder[:text]
-    picture_url = @reminder[:picture]
+  # def send_text_message
+  #   numbers_to_send_to = @reminder[:phone_number].split ", "
+  #   # multiple_nums = number_to_send_to.split ", "
+  #   message_to_send = "A reminder from Remind U: " + @reminder[:text]
+  #   picture_url = @reminder[:picture]
 
-    twilio_sid = ENV["ACCOUNT_SID"]
-    twilio_token = ENV["AUTH_TOKEN"]
-    twilio_phone_number = "+18607852739"
-    # binding.pry
+  #   twilio_sid = ENV["ACCOUNT_SID"]
+  #   twilio_token = ENV["AUTH_TOKEN"]
+  #   twilio_phone_number = "+18607852739"
+  #   # binding.pry
 
-    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+  #   @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
 
-    numbers_to_send_to.each do |number|
-      @twilio_client.account.messages.create(:from => twilio_phone_number, :to => number, :body => message_to_send, :media_url => picture_url)
-    end
-  end
+  #   numbers_to_send_to.each do |number|
+  #     @twilio_client.account.messages.create(:from => twilio_phone_number, :to => number, :body => message_to_send, :media_url => picture_url)
+  #   end
+  # end
 
 
   private
