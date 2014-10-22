@@ -35,6 +35,7 @@ class RemindersController < ApplicationController
       # binding.pry
       # if time is left blank -- do something like Time.now.
     end
+    # flash[:notice] = "Sucsessfully Sent!"
     redirect_to reminders_path
 
   end
