@@ -24,8 +24,24 @@ class RemindersController < ApplicationController
     # binding.pry
     # @reminder.delay.send_text_message(:time)
     send_text_message
+    create_favorite
     # schedule_sending_text
     #refactor this porfavor....
+    # if @reminder[:favorite] == true
+    #   @favorite = Favorite.create(fav_params)
+    #   @favorite[:phone_number] = @reminder[:phone_number]
+    #   @favorite[:picture] = @reminder[:picture]
+    #   @favorite[:user_id] = current_user.id
+    #   @favorite.save
+    #   # binding.pry
+    #   # if time is left blank -- do something like Time.now.
+    # end
+    # flash[:notice] = "Sucsessfully Sent!"
+    redirect_to reminders_path
+
+  end
+
+  def create_favorite
     if @reminder[:favorite] == true
       @favorite = Favorite.create(fav_params)
       @favorite[:phone_number] = @reminder[:phone_number]
@@ -35,9 +51,6 @@ class RemindersController < ApplicationController
       # binding.pry
       # if time is left blank -- do something like Time.now.
     end
-    # flash[:notice] = "Sucsessfully Sent!"
-    redirect_to reminders_path
-
   end
 
   def schedule_sending_text
@@ -54,7 +67,7 @@ class RemindersController < ApplicationController
   def send_text_message
     numbers_to_send_to = @reminder[:phone_number].split ", "
     # multiple_nums = number_to_send_to.split ", "
-    message_to_send = @reminder[:text]
+    message_to_send = "A reminder from Remind U: " + @reminder[:text]
     picture_url = @reminder[:picture]
 
     twilio_sid = ENV["ACCOUNT_SID"]
