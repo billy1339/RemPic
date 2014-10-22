@@ -7,11 +7,12 @@ class Reminder < ActiveRecord::Base
   #   job = self.delay(run_at: Time.now).send_text_message
   #   update_column(:delayed_job_id, job.id)
   # end
-  def self.send_text_message(remind)
-    numbers_to_send_to = remind[:phone_number].split ", "
+  def self.send_text_message(reminder_id)
+    reminder = Reminder.find(reminder_id)
+    numbers_to_send_to = reminder[:phone_number].split ", "
     # multiple_nums = number_to_send_to.split ", "
-    message_to_send = "A reminder from Remind U: " + remind[:text]
-    picture_url = remind[:picture]
+    message_to_send = "A reminder from Remind U: " + reminder[:text]
+    picture_url = reminder[:picture]
 
     twilio_sid = ENV["ACCOUNT_SID"]
     twilio_token = ENV["AUTH_TOKEN"]

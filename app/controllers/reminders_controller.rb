@@ -22,7 +22,7 @@ class RemindersController < ApplicationController
     @reminder.save
     # binding.pry
     # @reminder.delay.send_text_message(:time)
-    Reminder.send_text_message(@reminder)
+    Reminder.send_text_message(@reminder.id)
     # send_text_message
 
     create_favorite
