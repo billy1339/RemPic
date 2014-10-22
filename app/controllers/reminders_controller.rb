@@ -23,9 +23,10 @@ class RemindersController < ApplicationController
     # binding.pry
     # @reminder.delay.send_text_message(:time)
     Reminder.send_text_message(@reminder.id)
+    # Reminder.time_send
     # send_text_message
-
-    create_favorite
+    Favorite.create_favorite(@reminder.id, fav_params, current_user.id)
+    # create_favorite
     # schedule_sending_text
     #refactor this porfavor....
     # if @reminder[:favorite] == true
@@ -42,17 +43,17 @@ class RemindersController < ApplicationController
 
   end
 
-  def create_favorite
-    if @reminder[:favorite] == true
-      @favorite = Favorite.create(fav_params)
-      @favorite[:phone_number] = @reminder[:phone_number]
-      @favorite[:picture] = @reminder[:picture]
-      @favorite[:user_id] = current_user.id
-      @favorite.save
-      # binding.pry
-      # if time is left blank -- do something like Time.now.
-    end
-  end
+  # def create_favorite
+  #   if @reminder[:favorite] == true
+  #     @favorite = Favorite.create(fav_params)
+  #     @favorite[:phone_number] = @reminder[:phone_number]
+  #     @favorite[:picture] = @reminder[:picture]
+  #     @favorite[:user_id] = current_user.id
+  #     @favorite.save
+  #     # binding.pry
+  #     # if time is left blank -- do something like Time.now.
+  #   end
+  # end
 
   def schedule_sending_text
     # Delayed::Job.enqueue(perform, :run_at => @reminder.time)

@@ -28,15 +28,15 @@ class Reminder < ActiveRecord::Base
   end
 
 
-  def self.time_send
-    @reminder = Reminder.all
-    @reminder.each do |time|
-      get_time = time.time
-      if get_time >= Time.now + (10 * 60) or get time <= Time.now + (10 * 60)
-        Reminder.send_text_message(@reminder.id)
-      end
-    end
-  end
+  # def self.time_send
+  #   @reminder = Reminder.all
+  #   @reminder.each do |time|
+  #     get_time = time.time
+  #     if get_time >= Time.now + (10 * 60) || get_time <= Time.now + (10 * 60)
+  #       Reminder.send_text_message(@reminder.id)
+  #     end
+  #   end
+  # end
 
 
 end
