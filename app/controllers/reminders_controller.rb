@@ -12,8 +12,7 @@ class RemindersController < ApplicationController
     @favorite = Favorite.all
   end
 
-  def pic_to_chose
-  end
+
 
   def create
     #this method does three things right now...creates a reminder,
