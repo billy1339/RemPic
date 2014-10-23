@@ -9,6 +9,7 @@ Please feel free to use a different markup language if you do not plan to run
 
 
 !wire_frame.jpg
+![ScreenShot](http://i.imgur.com/O8ww5IX.jpg)
 
 !user_story.jpg
 
