@@ -7,17 +7,16 @@ Twilio api
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
+wire frame
+http://i.imgur.com/O8ww5IX.jpg
 
-!wire_frame.jpg
-![ScreenShot](http://i.imgur.com/O8ww5IX.jpg)
-
+user story
 http://i.imgur.com/v1g3FMK.jpg
 
+data-structure
 http://i.imgur.com/RPPpayx.jpg
 
-!user_story.jpg
 
-!dataStructure/associations.jpg
 
 
 
