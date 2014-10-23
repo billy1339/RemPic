@@ -6,3 +6,14 @@ Twilio api
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+wire_frame.jpg
+
+user_story.jpg
+
+dataStructure/associations.jpg
+
+
+
+heroku link: http://whispering-sea-3074.herokuapp.com/
