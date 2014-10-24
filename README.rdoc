@@ -20,4 +20,4 @@ http://i.imgur.com/RPPpayx.jpg
 
 
 
-heroku link: http://whispering-sea-3074.herokuapp.com/
+heroku link: https://remind-u.herokuapp.com/
